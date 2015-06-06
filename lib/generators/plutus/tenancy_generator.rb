@@ -1,15 +1,10 @@
 # lib/generators/plutus/plutus_generator.rb
 require 'rails/generators'
 require 'rails/generators/migration'
+require_relative 'base_generator'
 
 module Plutus
-  class TenancyGenerator < Rails::Generators::Base
-    include Rails::Generators::Migration
-
-    def self.source_root
-      @source_root ||= File.join(File.dirname(__FILE__), 'templates')
-    end
-
+  class TenancyGenerator < BaseGenerator
     # Implement the required interface for Rails::Generators::Migration.
     # taken from http://github.com/rails/rails/blob/master/activerecord/lib/generators/active_record.rb
     def self.next_migration_number(dirname)
